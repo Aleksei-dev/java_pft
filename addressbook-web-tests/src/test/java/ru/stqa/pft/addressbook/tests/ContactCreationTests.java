@@ -14,17 +14,14 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() throws Exception {
     app.goTo().groupPage();
     if (app.group().list().size() == 0){
-      app.group().create(new GroupData("test1", null, null));
+      app.group().create(new GroupData().withName("test2"));
     }
     app.goTo().homePage();
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData(
-            "Test8",
-            "Test",
-            "Test 1 - 2",
-            "+5252525",
-            "test@mail.ru",
-            "test1");
+    ContactData contact = new ContactData()
+            .withFirstname("Test8").withLastname("Test").withAddress("Test 1 - 2")
+            .withMobile("+5252525").withEmail("test@mail.ru")
+            .withGroup("test1");
     app.contact().create(contact, true);
     List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() + 1);

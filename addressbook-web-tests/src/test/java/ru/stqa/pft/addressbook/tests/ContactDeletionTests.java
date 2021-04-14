@@ -17,17 +17,14 @@ public class ContactDeletionTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().groupPage();
     if (app.group().list().size() == 0){
-      app.group().create(new GroupData("test1", null, null));
+      app.group().create(new GroupData().withName("test1"));
     }
     app.contact().home();
     if (app.contact().list().size() == 0){
-      app.contact().create(new ContactData(
-              "Test",
-              "Test",
-              "Test 1 - 2",
-              "+5252525",
-              "test@mail.ru",
-              "test1"), true);
+      app.contact().create(new ContactData()
+              .withFirstname("Test8").withLastname("Test").withAddress("Test 1 - 2")
+              .withMobile("+5252525").withEmail("test@mail.ru")
+              .withGroup("test1"), true);
     }
   }
 
