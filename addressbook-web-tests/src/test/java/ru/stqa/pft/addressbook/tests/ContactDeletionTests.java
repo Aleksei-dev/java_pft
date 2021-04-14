@@ -15,13 +15,13 @@ public class ContactDeletionTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigationHelper().gotoGroupPage();
-    if (! app.getGroupHelper().isThereAGroup()){
-      app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+    app.goTo().groupPage();
+    if (app.group().list().size() == 0){
+      app.group().create(new GroupData("test1", null, null));
     }
-    app.getContactHelper().goToHomePage();
-    if (! app.getContactHelper().isThereAContactToEdit()){
-      app.getContactHelper().createContact(new ContactData(
+    app.contact().home();
+    if (app.contact().list().size() == 0){
+      app.contact().create(new ContactData(
               "Test",
               "Test",
               "Test 1 - 2",
@@ -33,16 +33,16 @@ public class ContactDeletionTests extends TestBase {
 
   @Test
   public void testContactDeletion() throws InterruptedException {
-    List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().selectContact(before.size() - 1);
-    app.getContactHelper().deleteSelectedContact();
-    app.getContactHelper().submitContactDeletion();
+    List<ContactData> before = app.contact().list();
+    int index = before.size() - 1;
+    app.contact().delete(index);
     Thread.sleep(100);
-    app.getContactHelper().goToHomePage();
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.contact().home();
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() - 1);
 
-    before.remove(before.size() - 1);
+    before.remove(index);
       Assert.assertEquals(before, after);
   }
+
 }
