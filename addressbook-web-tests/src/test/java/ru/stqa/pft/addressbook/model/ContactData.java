@@ -7,6 +7,28 @@ public class ContactData {
     private String address;
     private String mobile;
     private String email;
+    private String home;
+    private String work;
+    private String allPhones;
+    private String allAddresses;
+
+    public String getAllAddresses() {
+        return allAddresses;
+    }
+
+    public ContactData withAllAddresses(String allAddresses) {
+        this.allAddresses = allAddresses;
+        return this;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;
@@ -43,10 +65,28 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactData withWork(String work) {
+        this.work = work;
+        return this;
+    }
+
     private String group;
 
     public int getId() {
         return id;
+    }
+
+    public String getHome() {
+        return home;
+    }
+
+    public String getWork() {
+        return work;
     }
 
     public String getFirstname() {
@@ -74,6 +114,20 @@ public class ContactData {
     }
 
     @Override
+    public String toString() {
+        return "ContactData{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", home='" + home + '\'' +
+                ", work='" + work + '\'' +
+                ", group='" + group + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -97,18 +151,6 @@ public class ContactData {
         result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id='" + id + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", address='" + address + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 
 }
