@@ -33,19 +33,17 @@ public class ContactEmailsTests extends TestBase{
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-    assertThat(contact.getEmail(), equalTo(contactInfoFromEditForm.getEmail()));
-    assertThat(contact.getEmail2(), equalTo(contactInfoFromEditForm.getEmail2()));
-    assertThat(contact.getEmail3(), equalTo(contactInfoFromEditForm.getEmail3()));
+    assertThat(contact.getAllEmails(), equalTo(mergeEmails(contactInfoFromEditForm)));
   }
 
   private String mergeEmails(ContactData contact) {
-    return Arrays.asList(contact.getHome(), contact.getMobile(), contact.getWork())
+    return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
             .stream().filter((s) -> ! s.equals(""))
-            .map(ContactPhoneTest::cleaned)
+            .map(ContactEmailsTests::cleaned)
             .collect(Collectors.joining("\n"));
   }
 
-  public static String cleaned(String phone){
-    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
+  public static String cleaned(String email){
+    return email.replaceAll("\\s", "").replaceAll("[-()]", "");
   }
 }

@@ -13,6 +13,7 @@ public class ContactData {
     private String work;
     private String allPhones;
     private String allAddresses;
+    private String allEmails;
 
     public ContactData withEmail2(String email2) {
         this.email2 = email2;
@@ -77,6 +78,15 @@ public class ContactData {
     public ContactData withWork(String work) {
         this.work = work;
         return this;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
+    public String getAllEmails() {
+        return allEmails;
     }
 
     private String group;

@@ -144,23 +144,22 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       String firstname = cell.get(2).getText();
       String lastname = cell.get(1).getText();
-//      String address = cell.get(3).getText();
-//      String mobile = cell.get(5).getText();
+      String address = cell.get(3).getText();
+      String mobile = cell.get(5).getText();
       String email = cell.get(4).getText();
       String allPhones = cell.get(5).getText();
       String allAddresses = cell.get(3).getText();
-      String[] emails = cell.get(4).getText().split("\n");
+      String allEmails = cell.get(4).getText();
       ContactData contact = new ContactData()
               .withId(id)
               .withFirstname(firstname)
               .withLastname(lastname)
-//              .withAddress(address)
-//              .withMobile(mobile)
+              .withAddress(address)
+              .withEmail(email)
+              .withMobile(mobile)
               .withAllPhones(allPhones)
               .withAllAddresses(cleaned(allAddresses))
-              .withEmail(emails[0])
-              .withEmail2(emails[1])
-              .withEmail3(emails[2]);
+              .withAllEmails(allEmails);
 //              .withAddress(addresses[0])
 //              .withAddress(addresses[1]);
       contactCache.add(contact);
