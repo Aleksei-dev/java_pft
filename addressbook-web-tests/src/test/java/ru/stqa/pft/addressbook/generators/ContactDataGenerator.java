@@ -23,12 +23,12 @@ public class ContactDataGenerator {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++){
       contacts.add(new ContactData()
-              .withFirstname(String.format("TestName %s", i))
-              .withLastname(String.format("TestLastname %s", i))
-              .withAddress(String.format("TestAddress - 3 %s", i))
-              .withMobile(String.format("+5434245 %s", i))
-              .withEmail(String.format("test@mail.ru %s", i))
-              .withGroup(String.format("test %s", i)));
+              .withFirstname(String.format("TestName%s", i))
+              .withLastname(String.format("TestLastname%s", i))
+              .withAddress(String.format("TestAddress - 3%s", i))
+              .withMobile(String.format("+5434245%s", i))
+              .withEmail(String.format("test%s@mail.ru", i))
+              .withGroup(String.format("test1")));
     }
     return contacts;
   }
