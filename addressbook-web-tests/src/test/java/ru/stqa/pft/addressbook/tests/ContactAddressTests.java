@@ -38,7 +38,10 @@ public class ContactAddressTests extends TestBase{
   }
 
   private String mergeAddresses(ContactData contact) {
-    return Arrays.asList(contact.getAddress()).stream().map(ContactAddressTests::cleaned).collect(Collectors.joining("\n"));
+    return Arrays.asList(contact.getAddress())
+            .stream()
+            .map(ContactAddressTests::cleaned)
+            .collect(Collectors.joining("\n"));
   }
 
   public static String cleaned(String address){
