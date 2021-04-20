@@ -87,7 +87,7 @@ public class ContactHelper extends HelperBase {
     fillContactForm((contact), bool);
     submitContactCreation();
     contactCache = null;
-    home();
+    returnToHomePage();
   }
 
   public void modify(int index, ContactData contact) {
