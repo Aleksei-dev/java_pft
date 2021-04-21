@@ -158,16 +158,9 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "firstname='" + firstname + '\'' +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", address='" + address + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", email='" + email + '\'' +
-                ", email2='" + email2 + '\'' +
-                ", email3='" + email3 + '\'' +
-                ", home='" + home + '\'' +
-                ", work='" + work + '\'' +
-                ", group='" + group + '\'' +
                 '}';
     }
 
