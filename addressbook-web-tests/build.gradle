@@ -8,6 +8,7 @@ dependencies {
     compile 'org.seleniumhq.selenium:selenium-java:3.141.5'
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
     compile 'com.beust:jcommander:1.81'
+    compile 'com.thoughtworks.xstream:xstream:1.4.16'
 }
 test {
     useTestNG()
